@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logs View</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Logs Viewer</h1>
+  </div>
+  <div class="header-right">
+    <form th:action="@{/auth/logout}" method="post">
+      <button class="btn" type="submit">Logout</button>
+    </form>
+  </div>
+</header>
+
+<main>
+  <div class="section section-table">
+    <h2>Logs Table</h2>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Message</th>
+        <th>Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="log : ${logs}">
+        <td th:text="${log.id}"></td>
+        <td th:text="${log.message}"></td>
+        <td th:text="${log.date}"></td>
+      </tr>
+      </tbody>
+    </table>
+    <form>
+      <button class="back-btn" type="button" onclick="history.back()">Go Back</button>
+    </form>
+  </div>
+</main>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-left">
+    <h1>Dashboard</h1>
+  </div>
+
+  <div class="header-right">
+    <form action="/auth/logout" method="post">
+      <button class="btn" type="submit">Logout</button>
+    </form>
+  </div>
+
+</header>
+
+<main>
+
+  <div class="section">
+    <h2>Add/Update Log</h2>
+    <form action="/logs/add-update" method="post">
+      <div class="form-group">
+        <label for="id">ID: <b>(Fill for updates only)</b></label>
+        <input type="text" id="id" name="id">
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <button class="btn" type="submit">Add/Update Log</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Delete Log</h2>
+    <form action="/logs/delete" method="post">
+      <div class="form-group">
+        <label for="id">Document ID:</label>
+        <input type="text" id="id" name="id">
+      </div>
+      <button class="btn" type="submit">Delete Log</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Get Log</h2>
+    <form action="/logs/get" method="post">
+      <div class="form-group">
+        <label for="log-id">Log ID:</label>
+        <input type="text" id="log-id" name="log-id" required>
+      </div>
+      <button class="btn" type="submit">Get Log</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Get All Logs</h2>
+    <form action="/logs/all" method="post">
+      <button class="btn" type="submit">Get All Logs</button>
+    </form>
+  </div>
+
+</main>
+
+</body>
+
+</html>

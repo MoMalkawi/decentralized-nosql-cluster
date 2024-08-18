@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+
+<div class="login-container">
+  <h1 class="login-header">Login</h1>
+  <form class="login-form" action="/auth/verify" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" class="login-input" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" class="login-input" required>
+    <button type="submit" class="login-btn">Login</button>
+  </form>
+  <p class="login-register">Don't have a logs collection? <a href="/register">Create Now.</a></p>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+version: '3'
+services:
+
+  bootstrap:
+    image: bootstrap
+    ports:
+      - "16000:16000"
+    networks:
+      - capstone-network
+    restart: always
+    build:
+      context: "./Bootstrap/"
+      dockerfile: "Dockerfile"
+    healthcheck:
+      test: ["timeout", "5", "true"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+  nosql-server:
+    image: nosql-server
+    ports:
+      - "15001:15000"
+    networks:
+      - capstone-network
+    restart: always
+    build:
+      context: "./NoSQLServer/"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - bootstrap
+
+  nosql-server2:
+    image: nosql-server
+    ports:
+      - "15002:15000"
+    networks:
+      - capstone-network
+    restart: always
+    build:
+      context: "./NoSQLServer/"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - bootstrap
+
+  logger-application:
+    image: logger-application
+    ports:
+      - "8080:8080"
+    networks:
+      - capstone-network
+    restart: always
+    build:
+      context: "./LoggerApplication/"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - nosql-server
+
+networks:
+  capstone-network:

@@ -3,6 +3,9 @@ A Custom Load-Balanced Decentralized NoSQL Cluster using Vanilla Sockets.
 
 Date: March 2023
 
+## Sample Screenshot of Usecase within Cluster
+![image](https://github.com/user-attachments/assets/ed95e981-044d-4233-9d7e-d85ae7be9cac)
+
 ## Overview
 
 The project consists of three primary components:
